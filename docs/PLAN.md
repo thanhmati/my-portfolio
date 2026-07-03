@@ -30,13 +30,14 @@ Kế hoạch phát triển chi tiết cho dự án website portfolio của Full 
   * Tích hợp xử lý gửi email qua mailto (client-side, không cần backend).
 
 
-## Giai đoạn 4: Thiết lập dữ liệu & Kết nối API Udemy (Data Integration)
-* [ ] **Udemy Service:**
+## Giai đoạn 4: Thiết lập dữ liệu & Kết nối API Udemy (Data Integration) ✅
+* [x] **Udemy Service:**
   * Tạo file `udemyService.ts` chứa interface định nghĩa dữ liệu khóa học.
-  * Viết mock data hoàn chỉnh cho các khóa học hiện tại để phục vụ giao diện trước.
-  * Viết API Client/fetcher sẵn sàng kết nối với API chính thức khi có schema.
-* [ ] **Projects Configuration:**
-  * Tạo file chứa dữ liệu tĩnh (JSON/TS) mô tả các dự án lập trình thực tế (Tên, Mô tả ngắn, Chi tiết bài toán, Giải pháp, Tech Stack, Github, Live Demo, Screenshots).
+  * Viết mock data hoàn chỉnh cho các khóa học hiện tại (`src/data/courses.ts` — 6 khoá học thật từ API).
+  * Viết API Client/fetcher (`src/services/udemyService.ts`) với cơ chế fetch → fallback → cache.
+* [x] **Projects Configuration:**
+  * Tạo `src/data/projects.ts` với 6 dự án thực tế (case-study format: Problem / Solution / Outcome / Tech Stack / Links).
+
 
 ## Giai đoạn 5: Phát triển danh sách Khóa học & Dự án (Showcase Pages)
 * [ ] **Udemy Course Cards:**
