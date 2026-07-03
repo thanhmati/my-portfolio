@@ -39,7 +39,12 @@ export default function CourseCard({ course }: CourseCardProps) {
   const colorClass = CATEGORY_COLORS[course.category] ?? CATEGORY_COLORS.Other;
 
   return (
-    <article className="group flex flex-col rounded-xl border border-border-dark bg-card-dark/70 overflow-hidden hover:border-slate-600 glow-cyan transition-all duration-300 hover:-translate-y-0.5">
+    <a
+      href={udemy}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="cursor-pointer group flex flex-col rounded-xl border border-border-dark bg-card-dark/70 overflow-hidden hover:border-slate-600 glow-cyan transition-all duration-300 hover:-translate-y-0.5"
+    >
       {/* Thumbnail */}
       <div className="relative overflow-hidden">
         <img
@@ -106,17 +111,12 @@ export default function CourseCard({ course }: CourseCardProps) {
           <span className="text-[10px] font-mono text-slate-500 border border-border-dark px-2 py-0.5 rounded">
             {course.level}
           </span>
-          <a
-            href={udemy}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent-violet/10 border border-accent-violet/30 text-accent-violet text-xs font-semibold hover:bg-accent-violet/20 transition-colors duration-200"
-          >
+          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent-violet/10 border border-accent-violet/30 text-accent-violet text-xs font-semibold group-hover:bg-accent-violet/20 transition-colors duration-200">
             Enroll Now
             <ExternalLink className="w-3 h-3" />
-          </a>
+          </div>
         </div>
       </div>
-    </article>
+    </a>
   );
 }

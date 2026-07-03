@@ -18,14 +18,16 @@ export type { UdemyCourse };
 
 const UDEMY_USER_ID = 228659088;
 
-const UDEMY_API_URL =
+const RAW_UDEMY_URL =
   `https://www.udemy.com/api-2.0/users/${UDEMY_USER_ID}/taught-profile-courses/` +
   `?page=1&organizationCoursesOnly=false` +
-  `&fields[course]=@default,headline,avg_rating,num_reviews,num_published_lectures,` +
-  `instructional_level_simple,content_info,image_240x135,image_480x270,is_paid,price` +
+  `&fields[course]=@default,discount,num_published_lectures,headline,instructional_level_simple,avg_rating,num_reviews,buyable_object_type,content_info,is_wishlisted,rating,image_100x100,is_recently_published,caption_locales,caption_languages,locale,badges,tracking_id,is_in_user_subscription,learn_url,is_in_premium,is_coding_exercises_badge_eligible,is_google_partner_course` +
   `&filter_hq_courses=true` +
   `&ordering=lang,-course_performance__revenue_30days,-published_time` +
-  `&page_size=12`;
+  `&price_country=VN` +
+  `&page_size=9`;
+
+const UDEMY_API_URL = `https://corsproxy.io/?` + encodeURIComponent(RAW_UDEMY_URL);
 
 // ── In-memory cache ───────────────────────────────────────────────────────────
 
@@ -40,8 +42,15 @@ interface UdemyApiCourse {
   headline: string;
   is_paid: boolean;
   price: string;
-  image_240x135: string;
-  image_480x270: string;
+  price_detail?: {
+    amount: number;
+    currency: string;
+    price_string: string;
+    currency_symbol: string;
+  };
+  image_100x100?: string;
+  image_240x135?: string;
+  image_480x270?: string;
   avg_rating: number;
   rating: number;
   num_reviews: number;
@@ -67,9 +76,9 @@ function mapApiCourse(raw: UdemyApiCourse): UdemyCourse {
     title: raw.title,
     headline: raw.headline,
     url: raw.url,
-    image240x135: raw.image_240x135,
-    image480x270: raw.image_480x270,
-    price: raw.price,
+    image240x135: raw.image_240x135 || raw.image_100x100 || '',
+    image480x270: raw.image_480x270 || raw.image_100x100 || '',
+    price: raw.price || 'Miễn phí',
     avgRating: Number(raw.avg_rating.toFixed(2)),
     numReviews: raw.num_reviews,
     numLectures: raw.num_published_lectures,

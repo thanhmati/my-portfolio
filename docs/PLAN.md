@@ -50,13 +50,14 @@ Kế hoạch phát triển chi tiết cho dự án website portfolio của Full 
   * Lắng nghe phím tắt ⌘K / Ctrl+K toàn trang và điều hướng bằng phím mũi tên + Enter.
 
 
-## Giai đoạn 6: Các trang chi tiết & Hoàn thiện UX (Detail Pages & Polish)
-* [ ] **Trang chi tiết khóa học (`CourseDetail`):**
+## Giai đoạn 6: Các trang chi tiết & Hoàn thiện UX (Detail Pages & Polish) ✅
+* [x] **Trang chi tiết khóa học (`CourseDetail`):**
   * Hiển thị chi tiết chương trình học, đánh giá và nút CTA nổi bật dẫn sang Udemy.
-* [ ] **Trang chi tiết dự án (`ProjectDetail`):**
+* [x] **Trang chi tiết dự án (`ProjectDetail`):**
   * Trình bày dạng nghiên cứu điển hình (Case study) chuyên nghiệp: Vấn đề, Giải pháp, Thành quả.
-* [ ] **Hiệu ứng chuyển trang (Page Transitions):**
+* [x] **Hiệu ứng chuyển trang (Page Transitions):**
   * Dùng Framer Motion `AnimatePresence` để chuyển đổi mượt mà giữa Landing Page và các trang chi tiết.
+
 
 ## Giai đoạn 7: Tối ưu hóa & Deploy (Verification & Launch)
 * [ ] **SEO Optimization:** Thiết lập title, meta description đầy đủ cho từng trang.

@@ -47,11 +47,7 @@ export default function HeroSection() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* ── Left column ── */}
         <div className="flex flex-col gap-6 animate-fade-up">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent-emerald/30 bg-accent-emerald/5 text-accent-emerald text-xs font-mono w-fit">
-            <span className="w-2 h-2 rounded-full bg-accent-emerald animate-pulse" />
-            Available for new projects
-          </div>
+
 
           {/* Headline */}
           <div className="space-y-2">

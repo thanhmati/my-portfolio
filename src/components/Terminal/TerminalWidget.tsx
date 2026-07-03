@@ -82,12 +82,14 @@ export default function TerminalWidget() {
   void historyIndex; // consumed by ArrowUp/Down handlers
 
 
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Auto-scroll on new output
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
+    }
   }, [lines]);
 
   const appendLines = useCallback((newLines: TerminalLine[]) => {
@@ -191,7 +193,7 @@ export default function TerminalWidget() {
       </div>
 
       {/* Output area */}
-      <div className="h-72 overflow-y-auto p-4 space-y-0.5 scrollbar-thin">
+      <div ref={scrollContainerRef} className="h-72 overflow-y-auto p-4 space-y-0.5 scrollbar-thin scroll-smooth">
         {lines.map(line => (
           <div
             key={line.id}
@@ -207,7 +209,6 @@ export default function TerminalWidget() {
             )}
           </div>
         ))}
-        <div ref={bottomRef} />
       </div>
 
       {/* Input row */}
@@ -220,7 +221,6 @@ export default function TerminalWidget() {
           onKeyDown={handleKeyDown}
           className="terminal-input text-sm"
           placeholder="type a command..."
-          autoFocus
           autoComplete="off"
           spellCheck={false}
         />

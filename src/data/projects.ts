@@ -79,23 +79,7 @@ export const PROJECTS: Project[] = [
       'The system processes 5,000+ transactions per minute with end-to-end latency under 200ms. Event-sourcing provides a complete audit trail satisfying banking compliance requirements.',
     featured: true,
   },
-  {
-    id: 'nestjs-microservices-course',
-    title: 'NestJS Microservices — Course Project',
-    shortDesc: 'Production-grade microservices system built as the flagship Udemy course project.',
-    role: 'Instructor & Architect',
-    period: '2024',
-    category: 'Microservices',
-    tags: ['NestJS', 'gRPC', 'Kafka', 'Keycloak', 'Docker', 'Nx Monorepo', 'TypeScript', 'Kubernetes'],
-    problem:
-      'Students needed a complete, real-world reference architecture for NestJS microservices — not a toy example, but a system that demonstrates TCP, gRPC, Kafka messaging, SSO with Keycloak OIDC, SAGA patterns, observability, and production deployment.',
-    solution:
-      'Designed and built a fully functional e-commerce microservices system with 8 services: API Gateway, Order, Product, Inventory, Notification, Auth, Payment, and Admin. Each inter-service communication pattern (sync via gRPC, async via Kafka) is demonstrated in context.',
-    outcome:
-      'The associated Udemy course has 90+ reviews at 4.76⭐. Students consistently report the project as the most complete NestJS reference they have found. The codebase is used as a template in multiple companies.',
-    liveDemo: 'https://www.udemy.com/course/khoa-hoc-nestjs-microservices-thuc-chien-tu-zero-en-hero/',
-    featured: true,
-  },
+
   {
     id: 'hsbc-nova-migration',
     title: 'HSBC NOVA Migration',
@@ -110,7 +94,23 @@ export const PROJECTS: Project[] = [
       'Developed new Spring Boot microservices as strangler-fig replacements for legacy monolith modules. Used Mulesoft as an integration middleware to route traffic between old and new systems during the transition. Kong Gateway was deployed as the unified API entry point with policy-based routing.',
     outcome:
       'Successfully completed migration of 6 critical modules ahead of schedule. The new architecture reduced average API response time by 65% and enabled independent deployability of each service.',
-    featured: false,
+    featured: true,
+  },
+  {
+    id: 'mft-process-erp',
+    title: 'MFT Process ERP Platform',
+    shortDesc: 'Visually engaging web interfaces for Project and Contract Management ERP platform.',
+    role: 'Frontend Web Developer',
+    period: 'Oct 2023 – Mar 2024',
+    category: 'Frontend',
+    tags: ['React.js', 'Next.js', 'TypeScript', 'Redux', 'Material UI'],
+    problem:
+      'The existing Project and Contract Management processes lacked user-friendly interfaces, making it difficult for users to engage with the system and manage contracts efficiently.',
+    solution:
+      'Developed visually engaging web interfaces using ReactJS, NextJS, and Material UI. Integrated intuitive features into the web platform to simplify Contract Management processes, while collaborating closely with cross-functional teams to ensure alignment with business requirements.',
+    outcome:
+      'Significantly enhanced user engagement and streamlined the contract management workflow, delivering a robust frontend application for American Code Lab.',
+    featured: true,
   },
   {
     id: 'acl-marketplace',
@@ -126,7 +126,7 @@ export const PROJECTS: Project[] = [
       'Built a component library of 30+ reusable UI components aligned to a custom design system. Implemented React Query for server-state management, reducing redundant API calls by 70%. Zustand managed local UI state. Applied code-splitting per route to achieve a <2s initial load time.',
     outcome:
       'Frontend delivered on time for the beta launch. Lighthouse performance score of 91. The component library was subsequently adopted by the backend team for admin tooling.',
-    featured: false,
+    featured: true,
   },
 ];
 

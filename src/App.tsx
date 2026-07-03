@@ -1,8 +1,20 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import Home from './pages/Home';
-import CourseDetail from './pages/CourseDetail';
 import ProjectDetail from './pages/ProjectDetail';
 import MainLayout from './layouts/MainLayout';
+
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/project/:projectId" element={<ProjectDetail />} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
 
 function App() {
   return (
@@ -16,11 +28,7 @@ function App() {
 
         <div className="relative z-10">
           <MainLayout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/course/:courseId" element={<CourseDetail />} />
-              <Route path="/project/:projectId" element={<ProjectDetail />} />
-            </Routes>
+            <AnimatedRoutes />
           </MainLayout>
         </div>
       </div>
@@ -29,3 +37,4 @@ function App() {
 }
 
 export default App;
+
