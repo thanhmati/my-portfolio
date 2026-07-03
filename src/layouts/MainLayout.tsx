@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Terminal, BookOpen, Search, Menu, X } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, YoutubeIcon } from '../components/SocialIcons';
 import { PROFILE } from '../data/profile';
+import CommandMenu from '../components/CommandMenu/CommandMenu';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -10,9 +11,22 @@ interface MainLayoutProps {
 
 export default function MainLayout({ children }: MainLayoutProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [commandMenuOpen, setCommandMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const isHome = location.pathname === '/';
+
+  // Global Cmd+K / Ctrl+K shortcut
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setCommandMenuOpen(prev => !prev);
+      }
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, []);
 
   // Function to handle scroll to section
   const handleNavClick = (sectionId: string) => {
@@ -83,8 +97,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
           <div className="hidden md:flex items-center gap-4">
             {/* Search/Command Menu Trigger Button */}
             <button 
+              onClick={() => setCommandMenuOpen(true)}
               className="flex items-center gap-2 px-3 py-1.5 text-xs font-mono border border-border-dark/80 bg-card-dark rounded-md text-slate-400 hover:border-slate-600 hover:text-slate-200 transition-all duration-200 cursor-pointer"
-              title="Mở menu lệnh (Cmd+K)"
+              title="Open command menu (Cmd+K)"
             >
               <Search className="w-3.5 h-3.5" />
               <span>Search</span>
@@ -95,6 +110,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-4">
             <button 
+              onClick={() => setCommandMenuOpen(true)}
               className="flex items-center gap-2 px-2.5 py-1.5 text-xs font-mono border border-border-dark bg-card-dark rounded-md text-slate-400 cursor-pointer"
             >
               <Search className="w-3.5 h-3.5" />
@@ -222,6 +238,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
           </div>
         </div>
       </footer>
+
+      {/* COMMAND MENU */}
+      <CommandMenu open={commandMenuOpen} onClose={() => setCommandMenuOpen(false)} />
 
     </div>
   );

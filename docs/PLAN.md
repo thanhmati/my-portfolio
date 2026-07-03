@@ -39,15 +39,16 @@ Kế hoạch phát triển chi tiết cho dự án website portfolio của Full 
   * Tạo `src/data/projects.ts` với 6 dự án thực tế (case-study format: Problem / Solution / Outcome / Tech Stack / Links).
 
 
-## Giai đoạn 5: Phát triển danh sách Khóa học & Dự án (Showcase Pages)
-* [ ] **Udemy Course Cards:**
-  * Card khóa học có hiệu ứng phát sáng (Glow hover).
-  * Bộ lọc khóa học theo danh mục (ví dụ: Frontend, Backend, Devops).
-* [ ] **Project Grid:**
-  * Hiển thị danh sách dự án với hiệu ứng fade-in khi cuộn chuột.
-* [ ] **Command Palette (Cmd+K Menu):**
-  * Triển khai modal tìm kiếm nhanh.
-  * Lắng nghe phím tắt bàn phím và hỗ trợ điều hướng nhanh bằng phím mũi tên + Enter.
+## Giai đoạn 5: Phát triển danh sách Khóa học & Dự án (Showcase Pages) ✅
+* [x] **Udemy Course Cards:**
+  * Card khóa học có hiệu ứng phát sáng (Glow hover), thumbnail, rating stars, stats.
+  * Bộ lọc khóa học theo danh mục (All / AI / Backend / Database) với skeleton loading.
+* [x] **Project Grid:**
+  * Hiển thị 4 dự án nổi bật với hiệu ứng scroll-reveal staggered (IntersectionObserver).
+* [x] **Command Palette (Cmd+K Menu):**
+  * Modal tìm kiếm nhanh với fuzzy search trên navigation, courses, projects, social links.
+  * Lắng nghe phím tắt ⌘K / Ctrl+K toàn trang và điều hướng bằng phím mũi tên + Enter.
+
 
 ## Giai đoạn 6: Các trang chi tiết & Hoàn thiện UX (Detail Pages & Polish)
 * [ ] **Trang chi tiết khóa học (`CourseDetail`):**
