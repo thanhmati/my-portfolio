@@ -18,16 +18,17 @@ Kế hoạch phát triển chi tiết cho dự án website portfolio của Full 
   * Footer: Bản quyền và liên kết mạng xã hội (Github, LinkedIn, Udemy, YouTube...).
   * Wrapper hiệu ứng: Cửa sổ giả lập hệ điều hành bao bọc toàn trang web.
 
-## Giai đoạn 3: Phát triển Trang chủ & các Component cốt lõi (Core UI)
-* [ ] **Hero Section & CLI Terminal Widget:**
+## Giai đoạn 3: Phát triển Trang chủ & các Component cốt lõi (Core UI) ✅
+* [x] **Hero Section & CLI Terminal Widget:**
   * Thiết kế giao diện Terminal CLI tương tác.
   * Viết logic xử lý các lệnh nhập vào từ bàn phím (`help`, `about`, `courses`, `projects`, `contact`, `clear`).
-* [ ] **About Me Section:**
+* [x] **About Me Section:**
   * Hiển thị thông tin cá nhân và kỹ năng kỹ thuật (Full Stack badges).
   * Khu vực "Instructor Stats" hiển thị các chỉ số ấn tượng từ Udemy (học viên, đánh giá) dưới dạng các con số đếm tăng dần (counter animation).
-* [ ] **Contact Section:**
+* [x] **Contact Section:**
   * Thiết kế Form liên hệ phong cách terminal.
-  * Tích hợp xử lý gửi email qua Formspree/EmailJS.
+  * Tích hợp xử lý gửi email qua mailto (client-side, không cần backend).
+
 
 ## Giai đoạn 4: Thiết lập dữ liệu & Kết nối API Udemy (Data Integration)
 * [ ] **Udemy Service:**

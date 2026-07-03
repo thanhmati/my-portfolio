@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Terminal, BookOpen, Search, Menu, X } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, YoutubeIcon } from '../components/SocialIcons';
+import { PROFILE } from '../data/profile';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -46,7 +47,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
               <Terminal className="w-5 h-5 text-accent-emerald" />
             </div>
             <span className="font-heading font-bold text-lg tracking-wider text-slate-100 group-hover:text-accent-emerald transition-colors duration-300">
-              tanthanh<span className="text-accent-cyan">.dev</span>
+              {PROFILE.alias}<span className="text-accent-cyan">.dev</span>
             </span>
           </Link>
 
@@ -173,7 +174,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
           {/* Logo / Copy */}
           <div className="flex flex-col items-center md:items-start gap-1">
             <span className="font-mono text-xs text-slate-500">
-              © {new Date().getFullYear()} tanthanh.dev. All rights reserved.
+              © {new Date().getFullYear()} {PROFILE.alias}.dev · {PROFILE.name}. All rights reserved.
             </span>
             <span className="text-[10px] font-mono text-slate-600 flex items-center gap-1">
               Built with React + TS + Tailwind v4 + Framer Motion
@@ -183,7 +184,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
           {/* Social Links */}
           <div className="flex items-center gap-4">
             <a 
-              href="https://github.com" 
+              href={PROFILE.socials.github}
               target="_blank" 
               rel="noopener noreferrer" 
               className="p-2 rounded-lg border border-border-dark bg-slate-900/50 hover:bg-slate-800 hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300 cursor-pointer"
@@ -192,7 +193,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
               <GithubIcon className="w-4 h-4" />
             </a>
             <a 
-              href="https://linkedin.com" 
+              href={PROFILE.socials.linkedin}
               target="_blank" 
               rel="noopener noreferrer" 
               className="p-2 rounded-lg border border-border-dark bg-slate-900/50 hover:bg-slate-800 hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300 cursor-pointer"
@@ -201,7 +202,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
               <LinkedinIcon className="w-4 h-4" />
             </a>
             <a 
-              href="https://udemy.com" 
+              href={PROFILE.socials.udemy}
               target="_blank" 
               rel="noopener noreferrer" 
               className="p-2 rounded-lg border border-border-dark bg-slate-900/50 hover:bg-slate-800 hover:text-accent-violet hover:border-accent-violet/30 transition-all duration-300 cursor-pointer"
@@ -210,11 +211,11 @@ export default function MainLayout({ children }: MainLayoutProps) {
               <BookOpen className="w-4 h-4" />
             </a>
             <a 
-              href="https://youtube.com" 
+              href={PROFILE.socials.youtube}
               target="_blank" 
               rel="noopener noreferrer" 
               className="p-2 rounded-lg border border-border-dark bg-slate-900/50 hover:bg-slate-800 hover:text-[#ff0000] hover:border-[#ff0000]/30 transition-all duration-300 cursor-pointer"
-              title="YouTube"
+              title="YouTube — Lập Trình Full Stack"
             >
               <YoutubeIcon className="w-4 h-4" />
             </a>
